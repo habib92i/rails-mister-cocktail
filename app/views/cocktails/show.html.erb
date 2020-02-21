@@ -1,0 +1,9 @@
+<h1><%= @cocktail.name%></h1>
+<img src="https://images.unsplash.com/photo-1545438102-799c3991ffb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" width = "400px"alt="">
+<p><%= link_to "Cocktails", cocktails_path %></p>
+<%= button_to"Add a dose", new_cocktail_dose_path(@cocktail), method: :get, class: "btn btn-primary"%>
+<% @cocktail.doses.each do |dose|%>
+  <p><%= dose.description %> <%= dose.ingredient.name %> </p>
+  <%= link_to "Delete dose", dose_path(dose.id), :method => :delete %>
+<% end %>
+

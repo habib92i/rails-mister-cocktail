@@ -1,0 +1,19 @@
+<div class="jumbotron">
+  <h1 class="display-4">Cocktailitos</h1>
+  <p class="lead">Create your delicious cocktail </p>
+  <p>mix and shake it up</p>
+  <%= button_to"Create your cocktail", new_cocktail_path, method: :get, class: "btn btn-primary"%>
+</div>
+
+  <div class="cardcontainer">
+    <div class="card" style="width: 18rem;">
+      <% @cocktails.each do |cocktail| %>
+        <div class="card-body">
+        <img src="https://images.unsplash.com/photo-1545438102-799c3991ffb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" class="card-img-top" alt="...">
+          <h5 class="card-title"><%= cocktail.name %></h5>
+          <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+          <%= button_to"Check it out", cocktail_path(cocktail), method: :get, class: "btn btn-primary"%>
+        </div>
+      <% end %>
+    </div>
+  </div>
